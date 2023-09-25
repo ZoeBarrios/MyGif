@@ -21,7 +21,7 @@ const reducer = (state: State, action: Action) => {
       };
     case "SET_GIFS":
       if (Array.isArray(payload)) {
-        return { ...state, ...payload };
+        return { ...state, gifs: [...state.gifs, ...payload] };
       } else {
         return state;
       }
