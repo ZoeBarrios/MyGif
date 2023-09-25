@@ -8,7 +8,7 @@ import { State } from "../../types";
 
 function ListOfGifsComponent() {
   const { state }: { state: State } = useContext(ContextState);
-  console.log(state);
+
   return (
     <div className="mt-52 componentes-container sm:mt-40">
       {state.gifs
