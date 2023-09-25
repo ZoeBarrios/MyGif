@@ -1,7 +1,6 @@
 const API_URL = import.meta.env.VITE_API_URL_BD;
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
-console.log(API_URL);
 export async function getOne(key) {
   const all = await getDB("users");
   const user = all.filter((user) => user.username == key);
