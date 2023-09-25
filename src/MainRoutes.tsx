@@ -5,9 +5,10 @@ import Home from "./Pages/Home";
 import MyGif from "./components/GifDetail";
 import Perfil from "./Pages/Perfil";
 import Login from "./Pages/Login";
+import { Action, Dispatch } from "../types";
 export default function MainRoutes() {
   const location = useLocation();
-  const { dispatch } = useContext(ContextState);
+  const { dispatch }: { dispatch: Dispatch<Action> } = useContext(ContextState);
 
   useEffect(() => {
     if (location.pathname === "/") {

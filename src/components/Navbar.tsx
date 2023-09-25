@@ -5,16 +5,22 @@ import ContextState from "../assets/context/contextState";
 import PopularTerm from "./PopularTerm";
 
 import { useNavigate } from "react-router-dom";
+import { Action } from "../../types";
+
+type Dispatch<A> = (action: A) => A;
 
 export default function Navbar() {
-  const { dispatch } = useContext(ContextState);
+  const { dispatch }: { dispatch: Dispatch<Action> } = useContext(ContextState);
   const navi = useNavigate();
   const handleClick = (e: MouseEvent) => {
-    dispatch({
-      type: "SET_KEYWORD",
-      payload: e.target.innerText,
-    });
-    navi("/");
+    const clickedElement = e.target as HTMLDivElement;
+    if (clickedElement) {
+      dispatch({
+        type: "SET_KEYWORD",
+        payload: clickedElement.innerText,
+      });
+      navi("/");
+    }
   };
   return (
     <div className="navbar">

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-export default function ShareCard(urlObjecto: string) {
+export default function ShareCard(urlObjecto: { url: string }) {
   const { url } = urlObjecto;
 
   const handleCopy = () => {
