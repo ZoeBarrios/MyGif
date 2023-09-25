@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: black;
+}
+
+.navbar {
+  @apply flex flex-wrap justify-between items-center z-10 fixed top-0 shadow-md w-full bg-black;
+}
+
+.componentes-container {
+  @apply container mx-auto grid grid-cols-1 w-10/12 sm:grid-cols-2 sm:w-auto md:grid-cols-3 sm:mb-5  lg:grid-cols-4  gap-4;
+}
+
+.menu {
+  @apply origin-top-right absolute w-full right-0 mt-1  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 sm:w-40;
+}
+
+.boton {
+  @apply items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm my-5 w-60 text-white bg-white text-black hover:bg-blue-700 focus:outline-none;
+}
