@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import ContextState from "../assets/context/contextState";
+import { State } from "../../types";
 export default function Loader() {
-  const { state } = useContext(ContextState);
+  const { state }: { state: State } = useContext(ContextState);
   return (
     <>
       {state.loading ? (

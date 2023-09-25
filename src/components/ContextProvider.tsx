@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import ContextState from "../assets/context/contextState";
 import { useReducer } from "react";
+import { Action, State } from "../../types";
 
 const initialState = {
   page: 0,
@@ -8,24 +9,6 @@ const initialState = {
   loading: false,
   action: "trending",
   keyword: "",
-};
-
-type State = {
-  page: number;
-  gifs: [];
-  loading: boolean;
-  action: string;
-  keyword: string;
-};
-
-type Action = {
-  type: string;
-  payload?: {
-    gifs: [];
-    loading: boolean;
-    action: string;
-    keyword: string;
-  };
 };
 
 const reducer = (state: State, action: Action) => {
@@ -37,10 +20,11 @@ const reducer = (state: State, action: Action) => {
         page: state.page + 1,
       };
     case "SET_GIFS":
-      return {
-        ...state,
-        gifs: [...state.gifs, ...payload],
-      };
+      if (Array.isArray(payload)) {
+        return { ...state, ...payload };
+      } else {
+        return state;
+      }
     case "SET_LOADING":
       return {
         ...state,

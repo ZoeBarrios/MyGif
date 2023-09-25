@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import ContextState from "../assets/context/contextState";
 import { useNavigate } from "react-router-dom";
+import { Action } from "../../types";
+type Dispatch<A> = (action: A) => A;
 
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { dispatch } = useContext(ContextState);
+  const { dispatch }: { dispatch: Dispatch<Action> } = useContext(ContextState);
   const navi = useNavigate();
-  const handleSubmit = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     dispatch({

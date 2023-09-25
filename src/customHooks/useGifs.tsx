@@ -1,17 +1,12 @@
 import { useCallback, useContext, useEffect, useMemo } from "react";
 import ContextState from "../assets/context/contextState";
+import { Action, Dispatch, State } from "../../types";
 const API_URL: string = import.meta.env.VITE_API_URL;
 const API_KEY: string = import.meta.env.VITE_API_KEY;
 
-interface Response {
-  id: string;
-  images: {
-    fixed_height_small: { url: string };
-  };
-}
-
 function useGifs() {
-  const { state, dispatch } = useContext(ContextState);
+  const { state, dispatch }: { state: State; dispatch: Dispatch<Action> } =
+    useContext(ContextState);
 
   const fetchData = useCallback(() => {
     if (state.loading) return;
