@@ -14,9 +14,8 @@ export default function MyGif() {
   const { details } = useDetails({ id: id ?? "defaultId" });
   const [isShareMenuOpen, setShareMenuOpen] = useState(false);
   const saveUser = JSON.parse(localStorage.getItem("user") || "[]");
-
   const addFavoriteGif = async () => {
-    if (saveUser == "[]") {
+    if (saveUser.length == 0) {
       toast.error("Debes estar logueado para añadir a favoritos");
       return;
     }
@@ -41,8 +40,8 @@ export default function MyGif() {
   };
 
   const setAvatar = async () => {
-    if (saveUser == "[]") {
-      toast.error("Debes estar logueado para añadir a favoritos");
+    if (saveUser.length == 0) {
+      toast.error("Debes estar logueado para añadir como avatar");
       return;
     }
 
@@ -71,7 +70,7 @@ export default function MyGif() {
           onClick={() => setShareMenuOpen(!isShareMenuOpen)}
           className="boton"
         >
-          Share
+          {isShareMenuOpen ? "Close" : "Share"}
         </button>
         {isShareMenuOpen && <ShareCard url={details.images.original.url} />}
         <button onClick={setAvatar} className="boton">

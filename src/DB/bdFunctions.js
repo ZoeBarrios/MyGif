@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const API_URL = import.meta.env.VITE_API_URL_BD;
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
@@ -13,7 +15,9 @@ export async function getDB(key) {
     headers: {
       Authorization: `Bearer ${API_TOKEN}`,
     },
-  }).then((response) => response.json());
+  })
+    .then((response) => response.json())
+    .catch((err) => toast.error("Error al obtener los datos"));
 
   if (elements.result) {
     all = JSON.parse(elements.result);
@@ -44,7 +48,7 @@ async function sendData(dataTosend) {
     method: "POST",
   })
     .then((response) => response.json())
-    .catch((err) => err);
+    .catch((err) => toast.error("Error al enviar los datos"));
 }
 
 export async function updateDB(key, data) {
