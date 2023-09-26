@@ -10,6 +10,8 @@ export async function getOne(key) {
 }
 
 export async function getDB(key) {
+  console.log(API_URL);
+  console.log(API_TOKEN);
   let all = [];
   let elements = await fetch(`${API_URL}/get/${key}`, {
     headers: {
