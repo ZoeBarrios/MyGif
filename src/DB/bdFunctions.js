@@ -19,7 +19,7 @@ export async function getDB(key) {
     },
   })
     .then((response) => response.json())
-    .catch((err) => toast.error("Error al obtener los datos"));
+    .catch((err) => toast.error("Error al obtener los datos: " + err));
 
   if (elements.result) {
     all = JSON.parse(elements.result);
@@ -50,7 +50,7 @@ async function sendData(dataTosend) {
     method: "POST",
   })
     .then((response) => response.json())
-    .catch((err) => toast.error("Error al enviar los datos"));
+    .catch((err) => toast.error("Error al obtener los datos: " + err));
 }
 
 export async function updateDB(key, data) {
