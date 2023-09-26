@@ -54,27 +54,27 @@ export default function MyGif() {
 
   return (
     <div className="text-white w-full flex flex-col justify-center items-center h-screen mt-40">
-      <h1 className="mb-5">{details?.title}</h1>
+      <h1 className="mb-5 mt-16 text-center">{details?.title}</h1>
       <img
         src={details?.images.original.url}
         className="max-h-96"
         alt={details?.title}
       />
 
-      <p>{details?.user?.display_name || null}</p>
+      <p className="text-center">{details?.user?.display_name || null}</p>
       <div className="flex flex-col items-center justify-between  w-9/12 mt-16 sm:flex-row sm:gap-4 ">
         <button onClick={addFavoriteGif} className="boton">
-          Favorite
+          Añadir a favoritos
         </button>
         <button
           onClick={() => setShareMenuOpen(!isShareMenuOpen)}
           className="boton"
         >
-          {isShareMenuOpen ? "Close" : "Share"}
+          {isShareMenuOpen ? "Cerrar" : "Compartir"}
         </button>
         {isShareMenuOpen && <ShareCard url={details.images.original.url} />}
         <button onClick={setAvatar} className="boton">
-          Set as avatar
+          Añadir como avatar
         </button>
       </div>
     </div>

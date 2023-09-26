@@ -81,7 +81,7 @@ export default function Form() {
           <input
             className="w-full h-8 p-2 border-2 border-gray-200 rounded-md"
             type="text"
-            placeholder="Username"
+            placeholder="Nombre de usuario"
             value={inputValues.username}
             name="username"
             onChange={handleChange}
@@ -89,7 +89,7 @@ export default function Form() {
           <input
             className="w-full h-8 p-2 border-2 border-gray-200 rounded-md"
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             value={inputValues.password}
             onChange={handleChange}
             name="password"
@@ -109,7 +109,7 @@ export default function Form() {
           <input
             className="w-full h-8 p-2 border-2 border-gray-200 rounded-md"
             type="text"
-            placeholder="Username"
+            placeholder="Nombre de usuario"
             value={inputValues.username}
             onChange={handleChange}
             name="username"
@@ -117,7 +117,7 @@ export default function Form() {
           <input
             className="w-full h-8 p-2 border-2 border-gray-200 rounded-md"
             type="password"
-            placeholder="Password"
+            placeholder="Contraseña"
             value={inputValues.password}
             onChange={handleChange}
             name="password"
@@ -127,7 +127,7 @@ export default function Form() {
           <input
             className="w-full h-8 p-2 border-2 border-gray-200 rounded-md"
             type="password"
-            placeholder="Confirm password"
+            placeholder="Confirma la contraseña"
             value={inputValues.confirmPassword}
             onChange={handleChange}
             name="confirmPassword"
@@ -142,7 +142,7 @@ export default function Form() {
         </div>
       )}
 
-      <a onClick={handleClick} className="mt-5 text-white">
+      <a onClick={handleClick} className="mt-5 text-white cursor-pointer">
         {show ? "Registrate" : "Inicia sesion"}
       </a>
     </form>
