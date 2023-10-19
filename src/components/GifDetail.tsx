@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
 import useDetails from "../customHooks/useDetails";
-import ShareCard from "./ShareCard";
-import { useState } from "react";
 import { updateDB, getOne } from "../DB/bdFunctions";
 import { toast } from "react-toastify";
+import { useCallback } from "react";
 
 type Params = {
   id: string;
@@ -12,7 +11,6 @@ type Params = {
 export default function MyGif() {
   const { id } = useParams<string>();
   const { details } = useDetails({ id: id ?? "defaultId" });
-  const [isShareMenuOpen, setShareMenuOpen] = useState(false);
   const saveUser = JSON.parse(localStorage.getItem("user") || "[]");
   const addFavoriteGif = async () => {
     if (saveUser.length == 0) {
@@ -52,6 +50,11 @@ export default function MyGif() {
     toast.success("Avatar actualizado");
   };
 
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(details?.images.original.url);
+    toast.success("Enlace copiado");
+  }, [details?.images.original.url]);
+
   return (
     <div className="text-white w-full flex flex-col justify-center items-center h-screen mt-40">
       <h1 className="mb-5 mt-16 text-center">{details?.title}</h1>
@@ -66,13 +69,9 @@ export default function MyGif() {
         <button onClick={addFavoriteGif} className="boton">
           Añadir a favoritos
         </button>
-        <button
-          onClick={() => setShareMenuOpen(!isShareMenuOpen)}
-          className="boton"
-        >
-          {isShareMenuOpen ? "Cerrar" : "Compartir"}
+        <button onClick={handleCopy} className="boton">
+          Copiar al portapapeles
         </button>
-        {isShareMenuOpen && <ShareCard url={details.images.original.url} />}
         <button onClick={setAvatar} className="boton">
           Añadir como avatar
         </button>
