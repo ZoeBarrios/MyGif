@@ -21,7 +21,7 @@ export default function SearchBar() {
     <form className="w-11/12 mx-auto " onSubmit={(e) => handleSubmit(e)}>
       <input
         type="text"
-        className="border-2 border-gray-300 rounded-md p-2 w-full focus:outline-none focus:border-blue-500"
+        className="border-2 border-violet-500 border-4 rounded-xl p-2 w-full focus:outline-none focus:border-blue-500"
         placeholder="Search for gifs"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}

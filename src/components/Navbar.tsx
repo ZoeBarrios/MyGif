@@ -3,6 +3,7 @@ import MyPerfil from "./MyPerfil";
 import { useContext } from "react";
 import ContextState from "../assets/context/contextState";
 import PopularTerm from "./PopularTerm";
+import { TERMS } from "../utils/constants";
 
 import { useNavigate } from "react-router-dom";
 import { Action } from "../../types";
@@ -36,16 +37,21 @@ export default function Navbar() {
               navi("/");
             }}
           >
-            <img src="/cat.png" alt="logo" className="w-20 h-20" />
-            <p className="text-white">MyGif</p>
+            <img src="/cat.png" alt="logo" className="w-24 h-24" />
+            <p className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold text-3xl">
+              MyGif
+            </p>
           </button>
         </div>
         <nav className="flex justify-between w-full">
           <ul className="hidden sm:flex gap-10 mx-auto text-white ">
-            <PopularTerm handleClick={handleClick} keyword={"Artist"} />
-            <PopularTerm handleClick={handleClick} keyword={"Music"} />
-            <PopularTerm handleClick={handleClick} keyword={"Memes"} />
-            <PopularTerm handleClick={handleClick} keyword={"Movies"} />
+            {TERMS.map((term: string, index: number) => (
+              <PopularTerm
+                key={index}
+                handleClick={handleClick}
+                keyword={term}
+              />
+            ))}
           </ul>
           <MyPerfil></MyPerfil>
         </nav>

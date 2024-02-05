@@ -36,7 +36,7 @@ export default function MyPerfil() {
       <button
         onClick={toggleMenu}
         ref={ref}
-        className="p-2 bg-white rounded focus:outline-none w-full sm:w-auto sm:mr-5"
+        className="p-2 bg-gradient-to-r from-pink-500 to-violet-500 text-white text-xl rounded focus:outline-none w-full sm:w-auto sm:mr-5 focus:outline-none focus:ring focus:ring-violet-500"
       >
         Mi cuenta
       </button>
