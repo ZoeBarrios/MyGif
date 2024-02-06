@@ -24,25 +24,31 @@ export const ListOfFavorites = () => {
     fetchFavorites();
   });
   return (
-    <div className="componentes-container">
-      {gifs.length != 0 ? (
-        gifs.map((gif: Gif) => {
-          return (
-            <GifComponent id={gif.id} url={gif.url} key={gif.id}>
-              <button
-                onClick={() => deleteFavorite(gif.id)}
-                className="bg-blue-500 px-5 py-2 rounded-md absolute top-2 w-11/12 left-2/4 transform -translate-x-2/4 "
-              >
-                Eliminar de favoritos
-              </button>
-            </GifComponent>
-          );
-        })
-      ) : (
-        <p className="text-xl col-start-2 text-center col-span-2 w-auto">
-          No hay gifs favoritos
-        </p>
-      )}
-    </div>
+    <section className="w-full text-center mt-10 bg-violet-500 px-5 min-h-screen">
+      <h1 className="text-4xl my-5 font-bold text-white">Mis gif favoritos</h1>
+      <div className="componentes-container">
+        {gifs.length != 0 ? (
+          gifs.map((gif: Gif) => {
+            return (
+              <GifComponent id={gif.id} url={gif.url} key={gif.id}>
+                <button
+                  onClick={() => deleteFavorite(gif.id)}
+                  className="boton absolute top-2 w-11/12 left-2/4 transform -translate-x-2/4 "
+                >
+                  Eliminar de favoritos
+                </button>
+              </GifComponent>
+            );
+          })
+        ) : (
+          <h1
+            className=" text-center m-auto font-semibold text-3xl text-violet-800"
+            style={{ columnSpan: "all" }}
+          >
+            Todavía no tienes gifs favoritos...
+          </h1>
+        )}
+      </div>
+    </section>
   );
 };

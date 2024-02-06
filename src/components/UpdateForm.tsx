@@ -12,10 +12,16 @@ export default function UpdateForm({ setShow }) {
     setShow(false);
   };
   return (
-    <div className="flex flex-col items-center rounded bg-blue-500 p-5 w-10/12 sm:w-1/2 ">
-      <p className="mb-5">¿Como estas hoy?</p>
-      <textarea ref={ref} className="rounded w-10/12 h-24 p-2"></textarea>
-      <button onClick={handleUpdate} className="mt-5 bg-white p-2 rounded">
+    <div className="flex flex-col items-center rounded bg-violet-500 p-5 w-10/12 sm:w-1/2 ">
+      <p className="mb-5 text-2xl font-bold text-white">¿Como estas hoy?</p>
+      <textarea
+        ref={ref}
+        className="rounded w-10/12 h-24 p-2 outline-none bg-white text-violet"
+      ></textarea>
+      <button
+        onClick={handleUpdate}
+        className=" mt-10 bg-white p-3 rounded text-violet-800 font-bold hover:bg-violet-800 hover:text-white transicion duration-300 ease-in-out"
+      >
         Actualizar
       </button>
     </div>

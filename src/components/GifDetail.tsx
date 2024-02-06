@@ -56,16 +56,18 @@ export default function MyGif() {
   }, [details?.images.original.url]);
 
   return (
-    <div className="text-white w-full flex flex-col justify-center items-center h-screen mt-40">
-      <h1 className="mb-5 mt-16 text-center">{details?.title}</h1>
-      <img
-        src={details?.images.original.url}
-        className="max-h-96"
-        alt={details?.title}
-      />
+    <div className="p-10 text-white w-full flex flex-col md:flex-row justify-center items-center min-h-screen mt-20">
+      <div className="flex-1 flex items-center justify-center flex-col">
+        <img
+          src={details?.images.original.url}
+          className="max-h-96 pt-5 pb-5 rounded mt-20 md:mt-auto w-9/12"
+          alt={details?.title}
+        />
+        <h1 className="text-center">{details?.title}</h1>
+        <p className="text-center">{details?.user?.display_name || null}</p>
+      </div>
 
-      <p className="text-center">{details?.user?.display_name || null}</p>
-      <div className="flex flex-col items-center justify-between  w-9/12 mt-16 sm:flex-row sm:gap-4 ">
+      <div className="flex flex-col items-center justify-between w-9/12 gap-4 flex-1">
         <button onClick={addFavoriteGif} className="boton">
           Añadir a favoritos
         </button>
